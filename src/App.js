@@ -22,18 +22,18 @@ const App = () => {
   const sendEmail = (e) => {
     setIsLoading(true);
     e.preventDefault();
-    // setStepNumber(1);
-    // setIsLoading(false);
-    emailjs.init("1jzGyUTxfjMZcjL51");
-    emailjs.sendForm('service_tq4kyuq', 'template_fpllxnq', e.target)
-    .then(function(response) {
-       console.log('SUCCESS!', response.status, response.text);
-       setStepNumber(1);
-       setIsLoading(false);
-    }, function(error) {
-        setIsLoading(false);
-       console.log('FAILED...', error);
-    });
+    setStepNumber(1);
+    setIsLoading(false);
+    // emailjs.init("1jzGyUTxfjMZcjL51");
+    // emailjs.sendForm('service_tq4kyuq', 'template_fpllxnq', e.target)
+    // .then(function(response) {
+    //    console.log('SUCCESS!', response.status, response.text);
+    //    setStepNumber(1);
+    //    setIsLoading(false);
+    // }, function(error) {
+    //     setIsLoading(false);
+    //    console.log('FAILED...', error);
+    // });
   }
 
   const PDFViewerComponent = ({ pdfUrl }) => {
