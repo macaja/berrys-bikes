@@ -5,6 +5,7 @@ import emailjs from 'emailjs-com';
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
+// Import styles
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 
 const App = () => {
@@ -21,23 +22,23 @@ const App = () => {
   const sendEmail = (e) => {
     setIsLoading(true);
     e.preventDefault();
-    setStepNumber(1);
-    setIsLoading(false);
-    // emailjs.init("1jzGyUTxfjMZcjL51");
-    // emailjs.sendForm('service_tq4kyuq', 'template_fpllxnq', e.target)
-    // .then(function(response) {
-    //    console.log('SUCCESS!', response.status, response.text);
-    //    setStepNumber(1);
-    //    setIsLoading(false);
-    // }, function(error) {
-    //     setIsLoading(false);
-    //    console.log('FAILED...', error);
-    // });
+    // setStepNumber(1);
+    // setIsLoading(false);
+    emailjs.init("1jzGyUTxfjMZcjL51");
+    emailjs.sendForm('service_tq4kyuq', 'template_fpllxnq', e.target)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+       setStepNumber(1);
+       setIsLoading(false);
+    }, function(error) {
+        setIsLoading(false);
+       console.log('FAILED...', error);
+    });
   }
 
   const PDFViewerComponent = ({ pdfUrl }) => {
     const defaultLayoutPluginInstance = defaultLayoutPlugin();
-  
+
     return (
       <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.worker.min.js">
         <Viewer
@@ -65,7 +66,7 @@ const App = () => {
           </Stack>
         </form>
       case 1: 
-        return <PDFViewerComponent pdfUrl='/Users/mauriciocardonajaramillo/projects/personal/berrys-bikes/assets/example.pdf' />
+        return <PDFViewerComponent pdfUrl='/bike-contract.pdf' />
       case 2: 
         return <>Step 3</>
       default:
@@ -77,7 +78,7 @@ const App = () => {
     <>
     <Box sx={{ marginTop: '5%'}}>
       <Stepper activeStep={stepNumber} alternativeLabel>
-        {steps.map((label) => (
+        {steps.map((label) => ( 
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
           </Step>
