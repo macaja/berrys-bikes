@@ -7,6 +7,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 // Import styles
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
+import bikeContract from './bike-contract.pdf'
 
 const App = () => {
   const [stepNumber, setStepNumber] = useState(0);
@@ -66,7 +67,7 @@ const App = () => {
           </Stack>
         </form>
       case 1: 
-        return <PDFViewerComponent pdfUrl='/bike-contract.pdf' />
+        return <PDFViewerComponent pdfUrl={bikeContract} />
       case 2: 
         return <>Step 3</>
       default:
