@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import './App.css';
 import { TextField, Button, Stack, CircularProgress, Box, Stepper, Step, StepLabel, Container } from '@mui/material';
 import emailjs from 'emailjs-com';
-import { Worker, Viewer } from '@react-pdf-viewer/core';
+import { Worker, Viewer, ScrollMode, SpecialZoomLevel,ViewMode } from '@react-pdf-viewer/core';
 import '@react-pdf-viewer/core/lib/styles/index.css';
 import { defaultLayoutPlugin } from '@react-pdf-viewer/default-layout';
 // Import styles
@@ -45,6 +45,7 @@ const App = () => {
         <Viewer
           fileUrl={pdfUrl}
           plugins={[defaultLayoutPluginInstance]}
+          defaultScale={SpecialZoomLevel.PageFit}
         />
       </Worker>
     );
@@ -78,6 +79,7 @@ const App = () => {
   return (
     <>
     <Box sx={{ marginTop: '5%'}}>
+      <img src='/logo192.png' alt='Logo' style={{ marginLeft: '44%'}}/>
       <Stepper activeStep={stepNumber} alternativeLabel>
         {steps.map((label) => ( 
           <Step key={label}>
