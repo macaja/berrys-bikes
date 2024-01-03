@@ -1,13 +1,17 @@
-export interface User {
-  firstName: string
-  middleName?: string
-  lastName: string
-  address: string
-  country: string
-  passport: string
-  visaGrantNumber: string
-  mobileNumber: string
-  email: string
+type UserFieldProp = {
+  field: string;
+  error: boolean;
+}
+export type User = {
+    firstName: UserFieldProp;
+    middleName?: UserFieldProp;
+    lastName: UserFieldProp;
+    address: UserFieldProp;
+    country: UserFieldProp;
+    passport: UserFieldProp;
+    visaGrantNumber: UserFieldProp;
+    mobileNumber: UserFieldProp;
+    email: UserFieldProp;
 }
 
 // import emailjs from 'emailjs-com';
