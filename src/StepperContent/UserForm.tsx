@@ -93,7 +93,6 @@ const UserForm = () => {
                         name="email"
                         label="Email address"
                         color="primary"
-                        inputProps={{ pattern: '' }}
                         required
                     />
                 </Grid>
