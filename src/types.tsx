@@ -1,7 +1,7 @@
 type UserFieldProp = {
-  field: string;
-  error: boolean;
-}
+    field: string;
+    error: boolean;
+};
 export type User = {
     firstName: UserFieldProp;
     middleName?: UserFieldProp;
@@ -12,7 +12,9 @@ export type User = {
     visaGrantNumber: UserFieldProp;
     mobileNumber: UserFieldProp;
     email: UserFieldProp;
-}
+};
+
+export type Files = { passportFile: File | null; visaFile: File | null };
 
 // import emailjs from 'emailjs-com';
 

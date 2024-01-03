@@ -5,6 +5,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 import UserForm from './StepperContent/UserForm';
 import ContractView from './StepperContent/ContractView';
 import { useStepperContext } from './StepperContext';
+import PdfUploader from './StepperContent/PdfUploader';
 
 const App = () => {
     const stepperContext = useStepperContext();
@@ -14,11 +15,9 @@ const App = () => {
     const renderStepContent = () => {
         switch (stepNumber) {
             case 0:
-                return (
-                    <UserForm/>
-                );
+                return <UserForm />;
             case 1:
-                return <>Upload your documents</>;
+                return <PdfUploader />;
             case 2:
                 return <ContractView />;
             default:
@@ -41,13 +40,13 @@ const App = () => {
                 alt="Logo"
                 style={{ width: '200px', height: '150px', display: 'flex' }}
             />
-              <Stepper activeStep={stepNumber} alternativeLabel sx={{ width: '100%' }}>
-                  {steps.map((label) => (
-                      <Step key={label}>
-                          <StepLabel>{label}</StepLabel>
-                      </Step>
-                  ))}
-              </Stepper>
+            <Stepper activeStep={stepNumber} alternativeLabel sx={{ width: '100%' }}>
+                {steps.map((label) => (
+                    <Step key={label}>
+                        <StepLabel>{label}</StepLabel>
+                    </Step>
+                ))}
+            </Stepper>
             <Container component="main" maxWidth="md" sx={{ marginTop: '2%' }}>
                 {renderStepContent()}
             </Container>
