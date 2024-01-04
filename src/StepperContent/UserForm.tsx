@@ -48,8 +48,35 @@ const UserForm = () => {
                         required
                     />
                 </Grid>
-                <Grid item xs={12} sm={12}>
-                    <TextField fullWidth name="address" label="Address" color="primary" required />
+                <Grid item xs={12} sm={4}>
+                    <TextField
+                        fullWidth
+                        name="address"
+                        label="Address"
+                        color="primary"
+                        onChange={handleInputChange}
+                        required
+                    />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                    <TextField
+                        fullWidth
+                        name="suburb"
+                        label="Suburb"
+                        color="primary"
+                        onChange={handleInputChange}
+                        required
+                    />
+                </Grid>
+                <Grid item xs={12} sm={4}>
+                    <TextField
+                        fullWidth
+                        name="postcode"
+                        label="Postcode"
+                        color="primary"
+                        onChange={handleInputChange}
+                        required
+                    />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <TextField
@@ -57,6 +84,7 @@ const UserForm = () => {
                         name="country"
                         label="Passport country"
                         color="primary"
+                        onChange={handleInputChange}
                         required
                     />
                 </Grid>
@@ -66,6 +94,7 @@ const UserForm = () => {
                         name="passport"
                         label="Passport number"
                         color="primary"
+                        onChange={handleInputChange}
                         required
                     />
                 </Grid>
@@ -75,6 +104,7 @@ const UserForm = () => {
                         name="visaGrantNumber"
                         label="Visa grant number"
                         color="primary"
+                        onChange={handleInputChange}
                         required
                     />
                 </Grid>
@@ -84,6 +114,7 @@ const UserForm = () => {
                         name="mobileNumber"
                         label="Mobile number"
                         color="primary"
+                        onChange={handleInputChange}
                         required
                     />
                 </Grid>
@@ -93,6 +124,7 @@ const UserForm = () => {
                         name="email"
                         label="Email address"
                         color="primary"
+                        onChange={handleInputChange}
                         required
                     />
                 </Grid>

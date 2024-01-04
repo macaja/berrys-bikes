@@ -6,6 +6,7 @@ import '@react-pdf-viewer/core/lib/styles/index.css';
 // Import styles
 import '@react-pdf-viewer/default-layout/lib/styles/index.css';
 import { useStepperContext } from '../StepperContext';
+import { fillPdfForm } from '../types';
 
 const PDFViewerComponent = ({ pdfUrl }: { pdfUrl: string }) => {
     const defaultLayoutPluginInstance = defaultLayoutPlugin();
@@ -22,11 +23,14 @@ const PDFViewerComponent = ({ pdfUrl }: { pdfUrl: string }) => {
 };
 
 const ContractView = () => {
-    const { handlePreviousStep } = useStepperContext();
+    const { user, handlePreviousStep } = useStepperContext();
     const [acceptTerms, setAcceptTerms] = useState(false);
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setAcceptTerms(e.target.checked)
-    }
+        setAcceptTerms(e.target.checked);
+    };
+    const handleSubmitForm = () => {
+        fillPdfForm(user);
+    };
     return (
         <Container>
             <PDFViewerComponent pdfUrl="/bike-contract.pdf" />
@@ -40,7 +44,12 @@ const ContractView = () => {
                 <Button sx={{ float: 'left' }} onClick={handlePreviousStep}>
                     Previous
                 </Button>
-                <Button sx={{ float: 'right' }} type="submit" disabled={!acceptTerms}>
+                <Button
+                    sx={{ float: 'right' }}
+                    type="submit"
+                    disabled={!acceptTerms}
+                    onClick={handleSubmitForm}
+                >
                     Submit
                 </Button>
             </Container>
